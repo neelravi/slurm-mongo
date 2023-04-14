@@ -11,6 +11,9 @@ setup(
     name='slurm_mongo',
     version=version,
     packages=find_packages(),
+    package_data={
+        'slurm_mongo': ['version.txt'],
+    },
     install_requires=[
         'pymongo',
     ],
