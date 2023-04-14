@@ -33,12 +33,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install build
 
-    - name: Increment version patch number
-      run: |
-        current_version=$(cat version.txt)
-        new_version=$(python -c "parts = '${current_version}'.split('.'); parts[2] = str(int(parts[2]) + 1); print('.'.join(parts))")
-        echo "${new_version}" > version.txt
-      shell: bash
+    - name: Get Current Version
+      id: get_version
+      run: echo ::set-output name=current_version::$(jq -r '.version' setup.py)
+
+    - name: Increment Patch Version
+      id: increment_version
+      run: echo ::set-output name=incremented_version::$(echo ${{ steps.get_version.outputs.current_version }} | awk -F. '{printf("%d.%d.%d", $1, $2, $3+1)}')
+
+    - name: Update Setup.py with New Version
+      run: sed -i "s/version='.*',/version='${{ steps.increment_version.outputs.incremented_version }}',/" setup.py
 
     - name: Build package
       run: python -m build
