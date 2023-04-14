@@ -3,9 +3,13 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+with open("version.txt") as f:
+    version = f.read().strip()
+
+
 setup(
     name='slurm_mongo',
-    version='0.1',
+    version=version,
     packages=find_packages(),
     install_requires=[
         'pymongo',
