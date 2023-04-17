@@ -5,8 +5,8 @@ with open("README.md", "r") as fh:
 
 setup(
     name='slurm_mongo',
-    version='1.0.2',
-    packages=find_packages(),
+    version='1.0.7',
+    packages=['./'],
     install_requires=[
         'pymongo',
     ],
