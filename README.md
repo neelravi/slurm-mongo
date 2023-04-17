@@ -1,5 +1,5 @@
 # Slurm-mongo
-[![Python Package](https://github.com/neelravi/slurm-mongo/actions/workflows/python-publish.yml/badge.svg?branch=main)](https://github.com/neelravi/slurm-mongo/actions/workflows/python-publish.yml)
+[![Publish Python Package on PyPI](https://github.com/neelravi/slurm-mongo/actions/workflows/python-publish.yml/badge.svg?branch=main)](https://github.com/neelravi/slurm-mongo/actions/workflows/python-publish.yml)
 
 [![PyPI version](https://badge.fury.io/py/slurm-mongo.svg)](https://badge.fury.io/py/slurm-mongo)
 
